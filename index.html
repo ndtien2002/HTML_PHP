@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<header>
+</header>
+<body>
+<h1>index.html deafault da luu vao 1 thu muc khac</h1>
+<?php
+echo "My first PHP script!";
+?>
+
+<br>
+
+<?php
+$con=mysqli_connect("mysql2.000webhost.com","a7174110_sqluser","tien1040165","a7174110_mobile");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$result = mysqli_query($con,"SELECT * FROM Persons");
+
+while($row = mysqli_fetch_array($result))
+  {
+  echo $row['FirstName'] . " " . $row['LastName'];
+  echo "<br>";
+  }
+
+mysqli_close($con);
+?>
+
+</body>
+</html>
